@@ -6,18 +6,30 @@ module.exports = {
   mode: 'development',
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js',
     clean: true,
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
   },
   optimization: {
     usedExports: true,
   },
   devServer: {
+    open: true,
+    // clientLogLevel: 'silent',
+    // compress: false,
     contentBase: path.join(__dirname, 'dist'),
+    // historyApiFallback: true,
+    // inline: true,
+    // overlay: true,
     port: 3030,
-    hotOnly: true,
-    writeToDisk: true,
+    watchContentBase: true,
+    watchOptions: {
+      poll: true,
+      ignored: '/node_modules/'
+    }// proxy: {},
+    // serveIndex: true,
+    // hot: true,
+    // writeToDisk: true,
   },
   plugins: [
     new webpack.ProgressPlugin(),
@@ -25,7 +37,6 @@ module.exports = {
       title: 'pastebin',
       template: 'index.html'
     }),
-    new webpack.HotModuleReplacementPlugin()
   ],
   module: {
     rules: [
