@@ -1,0 +1,68 @@
+{
+  "settings": {
+    "react": {
+      "createClass": "createReactClass", 
+      "pragma": "React",
+      "fragment": "Fragment",
+      "version": "detect",
+      "flowVersion": "0.147.0"
+    },
+    "propWrapperFunctions": [
+        "forbidExtraProps",
+        {"property": "freeze", "object": "Object"}
+    ],
+    "linkComponents": [
+      // custom "a" tag aliases to be mentioned here
+      {
+        "name": "Link",
+        "linkAttribute": "to"
+      }
+    ]
+  },
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:json/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:flowtype/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "parser": "babel-eslint",
+  "plugins": [
+    "react",
+    "json",
+    "react-hooks",
+    "jsx-a11y",
+    "flowtype"
+  ],
+  "rules": {
+    //general
+    "indent": [ "error", 2 ],
+    "no-trailing-spaces": "error",
+    "semi": "error",
+    "quotes": [ "error", "single" ],
+    "no-multiple-empty-lines": "error",
+
+    //react
+    "react/jsx-sort-props": ["error", {
+      "callbacksLast": true,
+      "shorthandFirst": true,
+      "shorthandLast": false,
+      "ignoreCase": true,
+      "noSortAlphabetically": false
+    }]
+  }
+}
