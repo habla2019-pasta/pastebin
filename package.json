@@ -1,0 +1,32 @@
+{
+  "name": "pastebin",
+  "author": {
+    "name": "Vikramaditya Kukreja",
+    "email": "kukreja.vikramaditya@gmail.com"
+  },
+  "version": "0.0.1",
+  "description": "Client side webapp for pasting",
+  "scripts": {
+    "build": "webpack",
+    "test": "jest",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-flow": "^7.12.13",
+    "@babel/preset-react": "^7.12.13",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.0",
+    "eslint": "^7.22.0",
+    "eslint-plugin-react": "^7.23.1",
+    "flow-bin": "^0.147.0",
+    "jest": "^26.6.3",
+    "less-loader": "^8.0.0",
+    "webpack": "^5.28.0",
+    "webpack-cli": "^4.5.0"
+  }
+}
