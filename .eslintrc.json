@@ -5,7 +5,7 @@
       "pragma": "React",
       "fragment": "Fragment",
       "version": "detect",
-      "flowVersion": "0.147.0"
+      "flowVersion": "detect"
     },
     "propWrapperFunctions": [
         "forbidExtraProps",
@@ -55,6 +55,13 @@
     "semi": "error",
     "quotes": [ "error", "single" ],
     "no-multiple-empty-lines": "error",
+    "object-curly-newline": ["error", {
+      "ObjectExpression": "always",
+      "ObjectPattern": { "multiline": true },
+      "ImportDeclaration": "never",
+      "ExportDeclaration": { "multiline": true, "minProperties": 3 }
+    }],
+    "brace-style": ["errors", "1tbs"],
 
     //react
     "react/jsx-sort-props": ["error", {
