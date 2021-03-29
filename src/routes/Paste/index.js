@@ -1,11 +1,2 @@
-// @flow
-
-import React from 'react';
-
-const Paste = (): React.Node => {
-  return (
-    <p>paste new</p>
-  );
-};
-
+import Paste from './Paste';
 export default Paste;

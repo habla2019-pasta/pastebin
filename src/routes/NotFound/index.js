@@ -1,9 +1,2 @@
-// @flow
-
-import React from 'react';
-
-const NotFound = (): React.Node => {
-  return <h1>404</h1>;
-};
-
+import NotFound from './NotFound';
 export default NotFound;

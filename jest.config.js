@@ -27,7 +27,11 @@ module.exports = {
   coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
-  coveragePathIgnorePatterns: [ path.resolve(__dirname, 'dist'), path.resolve(__dirname, 'node_modules') ],
+  coveragePathIgnorePatterns: [
+    path.resolve(__dirname, 'dist'),
+    path.resolve(__dirname, 'node_modules'),
+    'index.js$',
+  ],
 
   // Indicates which provider should be used to instrument code for coverage
   coverageProvider: 'babel',
