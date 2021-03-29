@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = (_, options) => {
   console.log('Webpack build mode', options.mode);
   return {
+    target: 'web',
     mode: options.mode ?? 'development',
     entry: './src/index.js',
     stats: 'minimal',
@@ -18,21 +19,12 @@ module.exports = (_, options) => {
     },
     devServer: {
       open: true,
-      // clientLogLevel: 'silent',
-      // compress: false,
-      contentBase: path.join(__dirname, 'dist'),
-      // historyApiFallback: true,
-      // inline: true,
-      // overlay: true,
+      compress: false,
+      contentBase: path.resolve(__dirname, 'dist'),
+      historyApiFallback: true,
+      publicPath: '/',
       port: 3030,
       watchContentBase: true,
-      watchOptions: {
-        poll: true,
-        ignored: '/node_modules/'
-      }// proxy: {},
-    // serveIndex: true,
-    // hot: true,
-    // writeToDisk: true,
     },
     plugins: [
       new webpack.ProgressPlugin(),
@@ -46,7 +38,11 @@ module.exports = (_, options) => {
         {
           test: /\.(js|jsx?)$/,
           include: path.resolve(__dirname, 'src'),
-          exclude: /node_modules/,
+          exclude: [
+            /.*\.test\.jsx?$/,
+            /.*Test.jsx?$/,
+            /node_modules/,
+          ],
           use: 'babel-loader',
         },
         {
@@ -54,7 +50,8 @@ module.exports = (_, options) => {
           include: path.resolve(__dirname, 'src'),
           exclude: /node_modules/,
           use: 'raw-loader'
-        }],
+        }
+      ],
     },
   };
 };
