@@ -1,3 +1,5 @@
-// https://testing-library.com/docs/queries/about/
 import '@testing-library/jest-dom';
-import * as Chance from 'chance';
+import Chance from 'chance';
+// Use chance as a global variable
+// eslint-disable-next-line no-unused-vars
+const chance = new Chance();

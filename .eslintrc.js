@@ -24,6 +24,10 @@ module.exports = ({
       },
     ],
   },
+  globals: {
+    // disables any lint errors when using chance directly
+    chance: 'writable',
+  },
   env: {
     browser: true,
     es2021: true,
