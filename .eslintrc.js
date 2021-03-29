@@ -1,3 +1,4 @@
+/* eslint-disable sort-keys */
 module.exports = ({
   settings: {
     react: {
@@ -10,7 +11,8 @@ module.exports = ({
     propWrapperFunctions: [
       'forbidExtraProps',
       {
-        property: 'freeze', object: 'Object',
+        property: 'freeze',
+        object: 'Object',
       },
     ],
     linkComponents: [
@@ -26,6 +28,7 @@ module.exports = ({
     browser: true,
     es2021: true,
     node: true,
+    jest: true,
   },
   extends: [
     'eslint:recommended',
@@ -34,6 +37,7 @@ module.exports = ({
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:flowtype/recommended',
+    'plugin:jest-dom/recommended',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -53,6 +57,14 @@ module.exports = ({
   ],
   rules: {
     //general
+    'sort-keys': [
+      'error',
+      'asc',
+      {
+        caseSensitive: false,
+        natural: true,
+      },
+    ],
     'indent': [ 'error', 2 ],
     'no-trailing-spaces': 'error',
     'semi': 'error',
@@ -69,7 +81,8 @@ module.exports = ({
           minProperties: 2,
         },
         ExportDeclaration: {
-          multiline: true, minProperties: 2,
+          multiline: true,
+          minProperties: 2,
         },
       },
     ],
@@ -77,6 +90,12 @@ module.exports = ({
       'error',
       {
         mode: 'strict',
+      },
+    ],
+    'object-property-newline': [
+      'error',
+      {
+        allowAllPropertiesOnSameLine: false,
       },
     ],
     'array-bracket-spacing': [ 'error', 'always' ],

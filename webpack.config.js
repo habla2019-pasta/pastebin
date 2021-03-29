@@ -5,53 +5,53 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = (_, options) => {
   console.log('Webpack build mode', options.mode ?? 'development');
   return {
-    target: 'web',
-    mode: options.mode ?? 'development',
-    entry: './src/index.js',
-    stats: 'minimal',
-    output: {
-      clean: true,
-      filename: '[name].bundle.js',
-      path: path.resolve(__dirname, 'dist'),
-    },
-    optimization: {
-      usedExports: true,
-    },
     devServer: {
-      open: true,
       compress: false,
       contentBase: path.resolve(__dirname, 'dist'),
       historyApiFallback: true,
-      publicPath: '/',
+      open: true,
       port: 3030,
+      publicPath: '/',
       watchContentBase: true,
     },
-    plugins: [
-      new webpack.ProgressPlugin(),
-      new HtmlWebpackPlugin({
-        title: 'pastebin',
-        template: 'index.html',
-      }),
-    ],
+    entry: './src/index.js',
+    mode: options.mode ?? 'development',
     module: {
       rules: [
         {
-          test: /\.(js|jsx?)$/,
-          include: path.resolve(__dirname, 'src'),
           exclude: [
             /.*\.test\.jsx?$/,
             /.*Test.jsx?$/,
             /node_modules/,
           ],
+          include: path.resolve(__dirname, 'src'),
+          test: /\.(js|jsx?)$/,
           use: 'babel-loader',
         },
         {
-          test: /\.txt$/,
-          include: path.resolve(__dirname, 'src'),
           exclude: /node_modules/,
+          include: path.resolve(__dirname, 'src'),
+          test: /\.txt$/,
           use: 'raw-loader',
         },
       ],
     },
+    optimization: {
+      usedExports: true,
+    },
+    output: {
+      clean: true,
+      filename: '[name].bundle.js',
+      path: path.resolve(__dirname, 'dist'),
+    },
+    plugins: [
+      new webpack.ProgressPlugin(),
+      new HtmlWebpackPlugin({
+        template: 'index.html',
+        title: 'pastebin',
+      }),
+    ],
+    stats: 'minimal',
+    target: 'web',
   };
 };

@@ -7,5 +7,6 @@ const presets = [
 const plugins = [ '@emotion' ];
 
 module.exports = {
-  presets, plugins,
+  plugins,
+  presets,
 };
