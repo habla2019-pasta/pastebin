@@ -1,4 +1,4 @@
-{
+module.exports = ({
   "settings": {
     "react": {
       "createClass": "createReactClass", 
@@ -12,7 +12,8 @@
         {"property": "freeze", "object": "Object"}
     ],
     "linkComponents": [
-      // custom "a" tag aliases to be mentioned here
+      // custom "a" tag aliases across repo to be mentioned here
+      // example <Link to="" /> from react-router-dom
       {
         "name": "Link",
         "linkAttribute": "to"
@@ -58,11 +59,12 @@
     "object-curly-newline": ["error", {
       "ObjectExpression": "always",
       "ObjectPattern": { "multiline": true },
-      "ImportDeclaration": "never",
+      "ImportDeclaration": "always",
       "ExportDeclaration": { "multiline": true, "minProperties": 3 }
     }],
     "brace-style": ["error", "1tbs"],
-
+    "object-curly-spacing": [ "error", "always" ],
+    "no-unused-vars": "error",
     //react
     "react/jsx-sort-props": ["error", {
       "callbacksLast": true,
@@ -70,6 +72,16 @@
       "shorthandLast": false,
       "ignoreCase": true,
       "noSortAlphabetically": false
-    }]
+    }],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/boolean-prop-naming": [
+      "error",
+      { 
+        "rule": "^(is|has)[A-Z]([A-Za-z0-9]?)",
+        "validateNested": true,
+        "message": "It is better if your prop ({{ propName }}) matches this pattern: ({{ pattern }})"
+      }
+    ]
   }
-}
+});

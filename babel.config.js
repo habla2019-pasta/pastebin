@@ -1,11 +1,11 @@
 const presets = [
   '@babel/preset-env',
   '@babel/preset-flow',
-  '@babel/preset-react'
+  '@babel/preset-react',
 ];
 // @emotion must be first
-const plugins = [
-  '@emotion'
-];
+const plugins = [ '@emotion' ];
 
-module.exports = { presets, plugins };
+module.exports = {
+  presets, plugins,
+};

@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (_, options) => {
-  console.log('Webpack build mode', options.mode);
+  console.log('Webpack build mode', options.mode ?? 'development');
   return {
     target: 'web',
     mode: options.mode ?? 'development',
@@ -30,7 +30,7 @@ module.exports = (_, options) => {
       new webpack.ProgressPlugin(),
       new HtmlWebpackPlugin({
         title: 'pastebin',
-        template: 'index.html'
+        template: 'index.html',
       }),
     ],
     module: {
@@ -49,8 +49,8 @@ module.exports = (_, options) => {
           test: /\.txt$/,
           include: path.resolve(__dirname, 'src'),
           exclude: /node_modules/,
-          use: 'raw-loader'
-        }
+          use: 'raw-loader',
+        },
       ],
     },
   };
