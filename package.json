@@ -17,7 +17,8 @@
     "delete": "rm -rf node_modules/ && rm -rf dist/ && rm -f yarn-error.log && rm -rf coverage",
     "test": "rm -rf coverage && jest",
     "test:watch": "rm -rf coverage && jest --coverage=false --watchAll",
-    "lint": "eslint --fix --ignore-path .gitignore .",
+    "lint": "eslint --ignore-path .gitignore .",
+    "lint:fix": "eslint --fix --ignore-path .gitignore .",
     "codecov": "codecov"
   },
   "devDependencies": {

@@ -1,0 +1,19 @@
+name: build-and-test
+on:
+  push:
+    branches: [ master ]
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: npm install -g yarn
+      - run: yarn
+      - run: yarn build
+      - run: yarn lint
+      - run: yarn test
+      - run: yarn codecov
+      
