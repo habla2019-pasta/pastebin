@@ -35,9 +35,13 @@ describe('App routes', () => {
   });
   describe('when path is incorrect', () => {
     it('should redirect to NotFound', () => {
-      const { getByText } = renderWithRouter(<App />, chance.string({
+      const path = chance.string({
+        alpha: true,
+        casing: 'lower',
+        numeric: false,
         symbols: false,
-      }));
+      });
+      const { getByText } = renderWithRouter(<App />, path);
       expect(getByText('404')).toBeInTheDocument();
     });
   });
