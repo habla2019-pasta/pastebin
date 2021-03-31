@@ -24,15 +24,8 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      - name: yarn build
-        run: |
-          yarn
-          yarn build
       - name: run Lighthouse CI
-        run: |
-          yarn global add @lhci/cli
-          echo "$(yarn global bin)" >> $GITHUB_PATH
-          lhci autorun
+        run: yarn lhci
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
       
