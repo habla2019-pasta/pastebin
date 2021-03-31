@@ -6,7 +6,7 @@ import {
   Switch,
 } from 'react-router-dom';
 import {
-  NotFound, Paste,
+  NotFound, Paste, Stats, Status,
 } from '../routes';
 
 const App = (): React.Node => {
@@ -14,6 +14,12 @@ const App = (): React.Node => {
     <Switch>
       <Route exact path="/">
         <Paste />
+      </Route>
+      <Route exact path="/status">
+        <Status />
+      </Route>
+      <Route exact path="/stats">
+        <Stats />
       </Route>
       <Route path="*">
         <NotFound />
